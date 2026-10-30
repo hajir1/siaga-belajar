@@ -1,0 +1,53 @@
+<?php
+
+// Pesan validasi berbahasa Indonesia sederhana (hanya aturan yang dipakai aplikasi ini).
+return [
+    'array' => ':Attribute harus berupa daftar.',
+    'boolean' => ':Attribute harus bernilai ya atau tidak.',
+    'date' => ':Attribute bukan tanggal yang valid.',
+    'distinct' => ':Attribute tidak boleh sama dengan isian lain.',
+    'email' => ':Attribute harus berupa alamat email yang valid.',
+    'exists' => ':Attribute tidak ditemukan.',
+    'file' => ':Attribute harus berupa berkas.',
+    'in' => ':Attribute tidak valid.',
+    'integer' => ':Attribute harus berupa bilangan bulat.',
+    'max' => [
+        'array' => ':Attribute maksimal :max item.',
+        'file' => ':Attribute maksimal :max kilobyte.',
+        'numeric' => ':Attribute maksimal :max.',
+        'string' => ':Attribute maksimal :max karakter.',
+    ],
+    'mimes' => ':Attribute harus berformat: :values.',
+    'min' => [
+        'array' => ':Attribute minimal :min item.',
+        'file' => ':Attribute minimal :min kilobyte.',
+        'numeric' => ':Attribute minimal :min.',
+        'string' => ':Attribute minimal :min karakter.',
+    ],
+    'present' => ':Attribute wajib ada.',
+    'required' => ':Attribute wajib diisi.',
+    'required_unless' => ':Attribute wajib diisi.',
+    'string' => ':Attribute harus berupa teks.',
+    'unique' => ':Attribute sudah dipakai.',
+    'uuid' => ':Attribute harus berupa UUID yang valid.',
+
+    'attributes' => [
+        'email' => 'email',
+        'password' => 'kata sandi',
+        'nama' => 'nama',
+        'teks' => 'teks soal',
+        'tingkat' => 'tingkat',
+        'status' => 'status',
+        'mapel_id' => 'mapel',
+        'topik_id' => 'topik',
+        'pilihan' => 'pilihan jawaban',
+        'pilihan.*.teks' => 'teks pilihan',
+        'pilihan.*.benar' => 'tanda benar',
+        'pilihan_id' => 'pilihan',
+        'mode_pengerjaan' => 'mode pengerjaan',
+        'batas_waktu_per_soal' => 'batas waktu per soal',
+        'berkas' => 'berkas',
+        'jenis' => 'jenis kejadian',
+        'durasi_detik' => 'durasi',
+    ],
+];

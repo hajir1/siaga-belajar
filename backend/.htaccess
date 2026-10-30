@@ -1,0 +1,10 @@
+# Dipakai jika document root domain mengarah ke folder ini (bukan ke folder public).
+# Semua permintaan diteruskan ke public/, sehingga .env, vendor, dan storage tidak bisa diakses dari web.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
