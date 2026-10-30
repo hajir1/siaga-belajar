@@ -441,26 +441,3 @@ php artisan test
 - kualitas soal hanya untuk guru.
 
 Alur di browser (360px) juga diuji dengan Playwright: Mode Ketat (watermark, seleksi teks mati, pindah tab tercatat, waktu habis), Mode Paket (unduh, muat ulang halaman tanpa sinyal, 3 jawaban "Menunggu sinyal", sinyal kembali → "Terkirim" dan benar/salah tampil), impor CSV, kualitas soal, remedial, dan tombol WhatsApp.
-
-## Batasan produk
-
-Kami menulis batasan ini secara terbuka:
-
-- **Web tidak bisa mencegah screenshot atau foto layar.** Mode Ketat hanya *mengurangi penyalinan dan melacak kebocoran* (watermark nama siswa, pencatatan pindah tab), bukan mencegahnya. Siswa yang paham teknis tetap bisa mematikan JavaScript atau membuka DevTools.
-- Batas waktu per soal dihitung di perangkat siswa; server mencatat jawaban "waktu habis" yang dikirim perangkat, tetapi tidak mengukur sendiri lamanya siswa melihat soal.
-- Mode Paket menyimpan soal (tanpa kunci) dan jawaban di localStorage browser. Menghapus data browser sebelum sinkron akan menghapus jawaban yang belum terkirim. Dalam Mode Paket, soal yang salah tidak langsung diulang karena penilaian baru terjadi saat sinkron.
-- **Sistem tidak bisa mencegah siswa mencari jawaban dari luar** (bertanya teman, mesin pencari). Karena itu kuis diposisikan sebagai **latihan formatif** untuk menemukan siswa yang perlu dibantu, bukan ujian penentu nilai.
-- Catatan pindah tab ditampilkan sebagai **"perlu dicek"**, bukan vonis curang. Pindah tab bisa terjadi karena notifikasi atau alasan wajar lain.
-- **Mendukung koneksi tidak stabil, bukan tanpa internet sama sekali.** Login pertama, pengunduhan paket soal, dan sinkronisasi jawaban tetap butuh koneksi.
-- Peringatan dini adalah **sinyal awal** berdasarkan aturan sederhana (di bawah 55 atau turun 3 pertemuan). Guru tetap perlu menilai konteks siswa.
-- Kualitas rating soal bergantung pada jumlah jawaban; soal baru memakai rating awal dari tingkat kesulitan yang dipilih guru.
-- Data di versi demo adalah data demo.
-
-## Rencana pengembangan
-
-Semua prioritas P0, P1, dan P2 di rancangan awal sudah dikerjakan. Ide berikutnya (belum dikerjakan):
-- Impor akun siswa dan kelas lewat CSV (saat ini akun dibuat lewat seeder).
-- Remedial yang juga menyarankan materi bacaan singkat per topik, ditulis guru.
-- Antrean Mode Paket di IndexedDB untuk paket yang sangat besar (saat ini localStorage, cukup untuk ratusan soal).
-- Notifikasi ke guru saat peringatan dini baru muncul.
-- Ekspor laporan orang tua ke PDF.
